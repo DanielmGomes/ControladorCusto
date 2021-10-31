@@ -5,8 +5,8 @@ function Footer() {
 
   return(
 
-    <footer>
-      <ul>
+    <footer className={styles.footer}>
+      <ul className={styles.social_list}>
         <li>
           <FaFacebook />
         </li>
@@ -18,7 +18,7 @@ function Footer() {
         </li>
       </ul>
       
-      <p>Controlador de Custos | <span>Daniel &copy; 2021</span></p>
+      <p className={styles.copy_right}>Controlador de Custos | <span>Daniel &copy; 2021</span></p>
 
     </footer>
 
