@@ -13,10 +13,13 @@
 
 .social_list li {
 	margin: 0 1em;
+	font-size: 50px;
+	margin-bottom: 30px;
+	transition: .5s;
 }
 
 .social_list li:hover {
-	color: #3EC1D5;
+	color: #222;
 }
 
 .social_list svg {
@@ -26,6 +29,11 @@
 
 .copy_right span {
 	font-weight: bold;
-	color: #3EC1D5;
+	color: 	#696969;
+	transition: .5s;
+}
+
+.copy_right span:hover {
+	color: #222;
 }
 
