@@ -1,0 +1,21 @@
+.form_control {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1em;
+}
+
+.form_control label {
+	margin-bottom: .6em;
+	font-weight: bold;
+}
+
+.form_control select {
+	padding: .7em;
+	border-color: #65DAF9;
+	border-radius: 30px;
+	transition: .5s;
+}
+
+.form_control select:hover {
+	border-color: #222;
+}
