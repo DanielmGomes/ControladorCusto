@@ -1,0 +1,21 @@
+{
+	"projects": [],
+	"categories": [
+		{
+			"id": 1,
+			"name": "aquisição de veiculo"
+		},
+		{
+			"id": 2,
+			"name": "viagem"
+		},
+		{
+			"id": 3,
+			"name": "equipamentos"
+		},
+		{
+			"id": 4,
+			"name": "construção"
+		}
+	]
+}
