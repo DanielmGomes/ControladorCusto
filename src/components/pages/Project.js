@@ -1,8 +1,10 @@
 import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import Swal from 'sweetalert2'
 
 import Loading from '../layout/Loading'
 import Container from '../layout/Container'
+import ProjectForm from '../project/ProjectForm'
 
 import styles from './Project.module.css'
 
@@ -28,6 +30,30 @@ function Project() {
 			.catch((err) => console.lo)
 	}, [id])
 
+	function editPost(project) {
+		//budget validation
+		if(project.budget < project.cost) {
+			Swal.fire('O orçamento não pode ser menor que o custo do projeto!', '', 'error')
+			return false
+		}
+
+		fetch(`http://localhost:5000/projects/${id}`, {
+			method: 'PATCH',
+			headers: {
+				'Content-type': 'application/json'
+			},
+			body: JSON.stringify(project),
+		})
+		.then(resp => resp.json())
+		.then((data) => {
+			setProject(data)
+			setShowProjectForm(false)
+			Swal.fire(`edição de: ${project.name} concluida com sucesso`, '', 'success' )
+
+		})
+		.catch((err) => Swal.fire('Ocorreu um erro inesperado', `${(err)}`, 'error'))
+	}
+
 	function toggleProjectForm() {
 		setShowProjectForm(!showProjectForm)
 	}
@@ -52,7 +78,9 @@ function Project() {
 								</p>
 							</div>
 							) : (
-								<div className={styles.project_info}>Detalhes do projeto</div>
+								<div className={styles.project_info}>
+									<ProjectForm handleSubmit={editPost} btnText='Concluir edição' projectData={project} />
+								</div>
 							)}
 					</div>
 				</ Container>
