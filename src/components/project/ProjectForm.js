@@ -26,7 +26,7 @@ function ProjectForm( {handleSubmit, btnText, projectData} ) {
 		.then((data) => {
 			setCategories(data)
 		})
-		.catch((err) => Swal.fire('Ocorreu um erro inesperado', '', 'error'))
+		.catch((err) => Swal.fire('Ocorreu um erro inesperado', `${(err)}`, 'error'))
 	}, [])
 
 	const submit = (e) => {
