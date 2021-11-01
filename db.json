@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "not xiaomi",
-      "budget": "6000",
+      "budget": "5000",
       "category": {
         "id": "3",
         "name": "equipamentos"

@@ -20,7 +20,7 @@
 
 .details_container,
 .service_form_container {
-	border-bottom: #7a7a7a;
+	border-bottom: solid 1px;
 	margin-bottom: 1.2em;
 	padding-bottom: 1.2em;
 	display: flex;
