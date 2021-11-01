@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import Swal from 'sweetalert2'
 
 import Container from '../layout/Container'
+import Loading from '../layout/Loading'
 import LinkButton from '../layout/LinkButton'
 import ProjectCard from '../project/ProjectCard'
 
@@ -11,9 +12,9 @@ function Projects() {
 
 	const [projects, setProject] = useState([])
 	const Swal = require('sweetalert2')
+	const [removeLoading, setRemoveLoading] = useState(false) 
 
 	useEffect(() => {
-
 		fetch('http://localhost:5000/projects', {
 			method: 'GET',
 			headers: {
@@ -24,9 +25,9 @@ function Projects() {
 			.then(data => {
 				console.log(data)
 				setProject(data)
+				setRemoveLoading(true)
 			})
 			.catch((err) => Swal.fire('Ocorreu um erro inesperado', `${(err)}`, 'error'))
-
 	}, [])
 
 	return (
@@ -47,6 +48,10 @@ function Projects() {
 						/>
 					))
 				}
+				{!removeLoading && <Loading />}
+				{removeLoading && projects.length === 0 && (
+					<p>Não há projetos cadastrados</p>
+				)}
 			</Container>
 		</div>
 	)
