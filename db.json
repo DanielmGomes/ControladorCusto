@@ -90,6 +90,27 @@
       "cost": 0,
       "services": [],
       "id": 17
+    },
+    {
+      "cost": 0,
+      "services": [],
+      "id": 18
+    },
+    {
+      "name": "not xiaomi",
+      "budget": "60000",
+      "category": {
+        "id": "3",
+        "name": "equipamentos"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 19
+    },
+    {
+      "cost": 0,
+      "services": [],
+      "id": 20
     }
   ],
   "categories": [

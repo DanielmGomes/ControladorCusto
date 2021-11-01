@@ -34,7 +34,7 @@ function NewProject() {
 					)
 				)
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => Swal.fire('Ocorreu um erro inesperado', '', 'error'))
 	} 
 
 	return (

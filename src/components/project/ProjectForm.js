@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react'
+import Swal from 'sweetalert2'
+
 
 import Input from '../form/Input'
 import Select from '../form/Select'
@@ -10,6 +12,8 @@ function ProjectForm( {handleSubmit, btnText, projectData} ) {
 
 	const [categories, setCategories] = useState([])
 	const [project, setProject] = useState(projectData || {})
+	const Swal = require('sweetalert2')
+
 
 	useEffect (() => {
 		fetch("http://localhost:5000/categories", {
@@ -22,7 +26,7 @@ function ProjectForm( {handleSubmit, btnText, projectData} ) {
 		.then((data) => {
 			setCategories(data)
 		})
-		.catch((err) => console.log(err))
+		.catch((err) => Swal.fire('Ocorreu um erro inesperado', '', 'error'))
 	}, [])
 
 	const submit = (e) => {
