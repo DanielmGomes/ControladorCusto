@@ -6,11 +6,12 @@ import Loading from '../layout/Loading'
 import LinkButton from '../layout/LinkButton'
 import ProjectCard from '../project/ProjectCard'
 
+
 import styles from './Projects.module.css'
 
 function Projects() {
 
-	const [projects, setProject] = useState([])
+	const [projects, setProjects] = useState([])
 	const Swal = require('sweetalert2')
 	const [removeLoading, setRemoveLoading] = useState(false) 
 
@@ -24,11 +25,28 @@ function Projects() {
 			.then(resp => resp.json())
 			.then(data => {
 				console.log(data)
-				setProject(data)
+				setProjects(data)
 				setRemoveLoading(true)
 			})
 			.catch((err) => Swal.fire('Ocorreu um erro inesperado', `${(err)}`, 'error'))
 	}, [])
+
+	function removeProject(id) {
+
+		fetch(`http://localhost:5000/projects/${id}`, {
+			method: 'DELETE',
+			headsers: (
+				'Content-type': 'application/json'
+			),
+		})
+			.then(resp => resp.json())
+			.then(data => {
+				setProjects(projects.filter((project) => project.id !== id))
+				Swal.fire('Projeto deletado com sucesso', '', 'success')
+			})
+			.catch((err) => Swal.fire('Ocorreu um erro inesperado', `${(err)}`, 'error'))
+
+	}
 
 	return (
 		<div className={styles.project_container}>
@@ -45,6 +63,7 @@ function Projects() {
 							budget={project.budget}
 							category={project.category.name}
 							key={project.id}
+							handleRemove={removeProject}
 						/>
 					))
 				}

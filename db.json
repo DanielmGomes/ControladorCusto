@@ -23,28 +23,6 @@
       "id": 2
     },
     {
-      "name": "moto",
-      "budget": "15000",
-      "category": {
-        "id": "1",
-        "name": "veiculos"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
-      "category": {
-        "id": "2",
-        "name": "viagem"
-      },
-      "name": "paris",
-      "budget": "20000",
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
       "name": "carro",
       "budget": "15000",
       "category": {
@@ -53,7 +31,7 @@
       },
       "cost": 0,
       "services": [],
-      "id": 5
+      "id": 3
     }
   ],
   "categories": [

@@ -5,6 +5,7 @@ import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import NewProject from './components/pages/NewProject'
 import Projects from './components/pages/Projects'
+import Project from './components/pages/Project'
 
 import Container from './components/layout/Container'
 
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path='/projects'>
               <Projects/>
+            </Route>
+            <Route exact path='/project/:id'>
+              <Project/>
             </Route>
 
           </Container>
